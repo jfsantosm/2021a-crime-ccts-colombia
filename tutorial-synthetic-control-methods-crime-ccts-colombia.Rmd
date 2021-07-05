@@ -217,6 +217,10 @@ det_dep
 ## categorical variable for municipalities below and above the coverage threshold
 
 ```{r}
+
+```
+
+```{r}
 # control group coverage below 30%
 low=30
 # treatment group coverage above 70%
@@ -236,6 +240,25 @@ cluster %>%
   group_by(cct_group) %>% 
   summarise(n=n())
 ```
+
+adding municipalities with no cct data as low cct 
+
+```{r}
+cctpac<- cct$codmpio
+pacific_states
+cctpac
+notcct_data <- setdiff(pacific_states,cctpac )
+
+notcct <- data.frame(codmpio= notcct_data, cct_group= rep(1, length(notcct_data)))
+
+cluster <- rbind(cluster, notcct)
+
+cluster %>% 
+  group_by(cct_group) %>% 
+  summarise(n=n())
+
+```
+
 
 ## preparing the data for the synth package
 
@@ -518,7 +541,7 @@ ggplot( aes(x=high_cct, y=(post_pre_ratio), color=high_cct)) +
         axis.ticks.x=element_blank())+
   guides(colour=guide_legend(title=" CCT \n coverage"))+
     theme_minimal() 
-ggsave(plot_location1)
+#ggsave(plot_location1)
 
 post.pre.high<- post.pre   %>% 
   filter(high_cct=="high") %>% select(post_pre_ratio)
@@ -590,7 +613,7 @@ ggplot( aes(x=cct, y=gap_ratio, color=cct)) +
         axis.ticks.x=element_blank())+
   guides(colour=guide_legend(title="CCT \n coverage"))+
     theme_minimal() 
-ggsave(plot_location1)
+#ggsave(plot_location1)
 plot_location1
 ```
 
