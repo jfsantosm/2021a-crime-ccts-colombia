@@ -194,7 +194,7 @@ gen_ori %>%
 # creating the dataset of crime determinants for the municipaliteis in the pacific region (det_dep)
 
 ```{r}
-pobl<-pobl_all
+pobl<-pobl_10000
 pop <- as.character("pop_10K")
 # "19","76","27","52" are the ID of the states in the pacific region
 dep_number=c("19","76","27","52")
@@ -244,18 +244,18 @@ cluster %>%
 adding municipalities with no cct data as low cct 
 
 ```{r}
-#cctpac<- cct$codmpio
-#pacific_states
-#cctpac
-#notcct_data <- setdiff(pacific_states,cctpac )
+cctpac<- cct$codmpio
+pacific_states
+cctpac
+notcct_data <- setdiff(pacific_states,cctpac )
 
-#notcct <- data.frame(codmpio= notcct_data, cct_group= rep(1, length(notcct_data)))
+notcct <- data.frame(codmpio= notcct_data, cct_group= rep(1, length(notcct_data)))
 
-#cluster <- rbind(cluster, notcct)
+cluster <- rbind(cluster, notcct)
 
-#cluster %>% 
-#  group_by(cct_group) %>% 
-#  summarise(n=n())
+cluster %>% 
+  group_by(cct_group) %>% 
+  summarise(n=n())
 
 ```
 
