@@ -8,7 +8,7 @@ This work is licensed under the Creative Commons Attribution-Share Alike 4.0 Int
 [![Creative Commons Lizenzvertrag](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 
-This repository contains a tutorial to replicate the results of the 5th chapter of my Master Thesis.
+This repository contains a tutorial to replicate the results of the working paper
 
 ## The Effect of Conditional Cash Transfer Policies on Crime: Evidence from a Synthetic Controls Framework
 
