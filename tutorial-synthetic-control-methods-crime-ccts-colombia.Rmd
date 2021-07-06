@@ -222,9 +222,9 @@ det_dep
 
 ```{r}
 # control group coverage below 30%
-low=35
+low=25
 # treatment group coverage above 70%
-high=65
+high=75
 cct<- cct_master %>% 
   filter(codmpio %in% pacific_states) %>% 
   filter(!is.na(cct_per))
